@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const LS_ONBOARDED = "unifit_onboarded";
 
@@ -27,17 +28,17 @@ export default function Welcome() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* 상단 */}
-      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <div className="text-lg font-bold text-slate-900">UniFit</div>
+      <Header
+        showNav={false}
+        rightContent={
           <button
             onClick={finish}
             className="rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-slate-900 transition"
           >
             건너뛰고 시작
           </button>
-        </div>
-      </header>
+        }
+      />
 
       {/* Hero (잘림 방지: 넉넉한 padding-bottom) */}
       <section className="relative overflow-hidden bg-gradient-to-b from-indigo-600 via-indigo-500 to-slate-50">
@@ -46,6 +47,7 @@ export default function Welcome() {
           <div className="absolute right-[-120px] top-16 h-96 w-96 rounded-full bg-cyan-200/15 blur-3xl" />
           <div className="absolute left-[-120px] bottom-[-120px] h-96 w-96 rounded-full bg-fuchsia-200/10 blur-3xl" />
         </div>
+
 
         <div className="mx-auto max-w-7xl px-6 pt-14 pb-24">
           <div className="mx-auto max-w-3xl text-center">
