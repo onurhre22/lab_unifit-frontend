@@ -2,11 +2,14 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import Welcome from "./pages/Welcome.tsx";
+import TeamMatching from "./pages/TeamMatching.tsx";
 import Footer from "./components/Footer.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       {/* 
         NOTE: 각 페이지 컴포넌트(Login, Main, Welcome)가 min-h-screen을 가지고 있어
         자체적으로 전체 화면 높이를 차지합니다. 푸터는 각 페이지의 컨텐츠 아래에 자연스럽게 표시됩니다.
@@ -20,6 +23,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/team-matching" element={<TeamMatching />} />
 
         {/* 그 외는 로그인으로 */}
         <Route path="*" element={<Navigate to="/login" replace />} />

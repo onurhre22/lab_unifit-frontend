@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /** ---------- small UI atoms ---------- */
-function NavLink({ children }: { children: React.ReactNode }) {
+function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
-    <a href="#" className="text-sm text-slate-600 hover:text-slate-900 transition">
+    <Link to={to} className="text-sm text-slate-600 hover:text-slate-900 transition">
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -81,10 +81,10 @@ export default function Header({
 
           {showNav ? (
             <nav className="hidden items-center gap-8 md:flex">
-              <NavLink>AI 로드맵</NavLink>
-              <NavLink>팀 매칭</NavLink>
-              <NavLink>멘토링</NavLink>
-              <NavLink>포트폴리오</NavLink>
+              <NavLink to="#">AI 로드맵</NavLink>
+              <NavLink to="/team-matching">팀 매칭</NavLink>
+              <NavLink to="#">멘토링</NavLink>
+              <NavLink to="#">포트폴리오</NavLink>
             </nav>
           ) : null}
         </div>
