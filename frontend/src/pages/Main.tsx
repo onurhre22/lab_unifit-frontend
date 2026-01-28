@@ -484,7 +484,7 @@ export default function Main() {
 
 
 
-                스크롤하면 팀 매칭 · 멘토링 · 포트폴리오 기능을 확인할 수 있어요
+                스크롤하면 팀 프로젝트 · 멘토링 · 포트폴리오 기능을 확인할 수 있어요
 
 
 
@@ -544,8 +544,8 @@ export default function Main() {
 
 
 
-                <Link to="/team-matching">
-                  <ServiceCard title="팀 프로젝트 매칭" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
+                <Link to="/team-project">
+                  <ServiceCard title="팀 프로젝트" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
                 </Link>
 
 

@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import Welcome from "./pages/Welcome.tsx";
-import TeamMatching from "./pages/TeamMatching.tsx";
+import TeamProject from "./pages/TeamProject.tsx";
+import JoinProject from "./pages/JoinProject.tsx";
+import AutonomousRecruitment from "./pages/AutonomousRecruitment.tsx";
 import Footer from "./components/Footer.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
@@ -23,7 +25,9 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/team-matching" element={<TeamMatching />} />
+        <Route path="/team-project" element={<TeamProject />} />
+        <Route path="/join-project" element={<JoinProject />} />
+        <Route path="/autonomous-recruitment" element={<AutonomousRecruitment />} />
 
         {/* 그 외는 로그인으로 */}
         <Route path="*" element={<Navigate to="/login" replace />} />

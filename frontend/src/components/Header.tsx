@@ -82,7 +82,7 @@ export default function Header({
           {showNav ? (
             <nav className="hidden items-center gap-8 md:flex">
               <NavLink to="#">AI 로드맵</NavLink>
-              <NavLink to="/team-matching">팀 매칭</NavLink>
+              <NavLink to="/team-project">팀 프로젝트</NavLink>
               <NavLink to="#">멘토링</NavLink>
               <NavLink to="#">포트폴리오</NavLink>
             </nav>
