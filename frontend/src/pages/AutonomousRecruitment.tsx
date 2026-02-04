@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 
 const recruitmentPosts = [
@@ -62,7 +63,7 @@ const recruitmentPosts = [
 
 function RecruitmentCard({ post }: { post: (typeof recruitmentPosts)[0] }) {
     return (
-        <div className="relative rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+        <Link to={`/recruitment/${post.id}`} className="relative rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md block">
             {post.isAiRecommended && (
                 <span className="absolute top-4 right-4 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-700">AI 추천</span>
             )}
@@ -107,7 +108,7 @@ function RecruitmentCard({ post }: { post: (typeof recruitmentPosts)[0] }) {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 

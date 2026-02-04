@@ -7,6 +7,8 @@ import TeamProject from "./pages/TeamProject";
 import JoinProject from "./pages/JoinProject";
 import AutonomousRecruitment from "./pages/AutonomousRecruitment";
 import Notification from "./pages/Notification";
+import RecruitmentDetail from "./pages/RecruitmentDetail";
+import TeamWorkspace from "./pages/TeamWorkspace";
 
 import SignupRole from "./pages/SignupRole";
 import ProfessorDashboard from "./pages/ProfessorDashboard";
@@ -47,9 +49,11 @@ export default function App() {
           path="/autonomous-recruitment"
           element={<AutonomousRecruitment />}
         />
+        <Route path="/team-workspace/:id" element={<TeamWorkspace />} />
 
         {/* Etc */}
         <Route path="/notifications" element={<Notification />} />
+        <Route path="/recruitment/:id" element={<RecruitmentDetail />} />
 
         {/* 그 외는 로그인으로 */}
         <Route path="*" element={<Navigate to="/login" replace />} />

@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 // --- Mock Data ---
 
@@ -79,7 +80,7 @@ const invitations = [
 
 function ProjectCard({ project }: { project: (typeof ongoingProjects)[0] | (typeof completedProjects)[0] }) {
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
+    <Link to={`/team-workspace/${project.id}`} className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
       <div>
         <div className="flex items-center justify-between">
           <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${project.statusColor}`}>
@@ -121,7 +122,7 @@ function ProjectCard({ project }: { project: (typeof ongoingProjects)[0] | (type
           다음 마일스톤: {project.deadline}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
