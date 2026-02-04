@@ -10,10 +10,12 @@ export default function Login() {
     navigate(onboarded ? "/main" : "/welcome");
   };
 
-  const simulateSignup = () => {
+  const goToSignupRole = () => {
     // ✅ “처음 회원가입한 사람” 상태로 만들기
     localStorage.setItem(LS_ONBOARDED, "false");
-    navigate("/welcome");
+
+    // ✅ 회원가입 역할 선택 화면으로 이동
+    navigate("/signup-role");
   };
 
   return (
@@ -34,16 +36,21 @@ export default function Login() {
 
           <div className="relative z-10 max-w-md text-left text-white">
             <h1 className="text-4xl font-bold leading-tight">
-              AI로<br />미래를 설계하세요
+              AI로
+              <br />
+              미래를 설계하세요
             </h1>
             <p className="mt-4 text-white/90">
-              진로·역량·시간표를 분석해<br />
+              진로·역량·시간표를 분석해
+              <br />
               당신만의 학업 성장 로드맵을 만들어줘요.
             </p>
 
             <div className="mt-8 rounded-2xl bg-white/10 p-4 text-sm backdrop-blur">
-              ✔ AI 학업 로드맵<br />
-              ✔ 팀 프로젝트 매칭<br />
+              ✔ AI 학업 로드맵
+              <br />
+              ✔ 팀 프로젝트 매칭
+              <br />
               ✔ 멘토링 & 포트폴리오
             </div>
           </div>
@@ -93,14 +100,14 @@ export default function Login() {
 
             <button
               type="button"
-              onClick={simulateSignup}
+              onClick={goToSignupRole}
               className="mt-3 w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition"
             >
-              회원가입(신규) 후 시작하기
+              회원가입(신규) 시작하기
             </button>
 
             <p className="mt-5 text-center text-xs text-slate-400">
-              * 지금은 데모라서 회원가입 버튼은 “신규 유저 상태”를 시뮬레이션해요.
+              * 데모 환경: 회원가입 버튼 클릭 시 역할 선택 화면으로 이동합니다.
             </p>
           </div>
         </div>
