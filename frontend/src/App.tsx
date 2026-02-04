@@ -5,6 +5,7 @@ import Welcome from "./pages/Welcome.tsx";
 import TeamProject from "./pages/TeamProject.tsx";
 import JoinProject from "./pages/JoinProject.tsx";
 import AutonomousRecruitment from "./pages/AutonomousRecruitment.tsx";
+import Notification from "./pages/Notification.tsx";
 import Footer from "./components/Footer.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/team-project" element={<TeamProject />} />
         <Route path="/join-project" element={<JoinProject />} />
         <Route path="/autonomous-recruitment" element={<AutonomousRecruitment />} />
+        <Route path="/notifications" element={<Notification />} />
 
         {/* 그 외는 로그인으로 */}
         <Route path="*" element={<Navigate to="/login" replace />} />

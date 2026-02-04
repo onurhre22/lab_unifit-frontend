@@ -36,19 +36,14 @@ function IconBtn({
 // Default content for the right side of the header
 const DefaultRightContent = () => (
   <div className="flex items-center gap-2">
-    <IconBtn label="검색">
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7" />
-        <path d="M20 20l-3.5-3.5" />
-      </svg>
-    </IconBtn>
-
-    <IconBtn label="알림" dot>
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
-        <path d="M13.73 21a2 2 0 01-3.46 0" />
-      </svg>
-    </IconBtn>
+    <Link to="/notifications">
+      <IconBtn label="알림" dot>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
+          <path d="M13.73 21a2 2 0 01-3.46 0" />
+        </svg>
+      </IconBtn>
+    </Link>
 
     <button
       type="button"
