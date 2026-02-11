@@ -9,6 +9,8 @@ import AutonomousRecruitment from "./pages/AutonomousRecruitment";
 import Notification from "./pages/Notification";
 import RecruitmentDetail from "./pages/RecruitmentDetail";
 import TeamWorkspace from "./pages/TeamWorkspace";
+import CurriculumRoadmap from "./pages/CurriculumRoadmap";
+import AddCourse from "./pages/AddCourse";
 
 import SignupRole from "./pages/SignupRole";
 import ProfessorDashboard from "./pages/ProfessorDashboard";
@@ -38,6 +40,8 @@ export default function App() {
         {/* Student */}
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/curriculum-roadmap" element={<CurriculumRoadmap />} />
+        <Route path="/add-course" element={<AddCourse />} />
 
         {/* Professor */}
         <Route path="/professor" element={<ProfessorDashboard />} />

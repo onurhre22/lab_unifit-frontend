@@ -133,7 +133,7 @@ export default function Header({
               <AppNavLink to="/main">홈</AppNavLink>
 
               {/* 아직 페이지 없으면 DisabledNavItem로 (active 절대 X) */}
-              <DisabledNavItem>AI 로드맵</DisabledNavItem>
+              <AppNavLink to="/curriculum-roadmap">AI 로드맵</AppNavLink>
 
               <AppNavLink to="/team-project">팀 프로젝트</AppNavLink>
 
