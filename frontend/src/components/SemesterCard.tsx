@@ -26,7 +26,7 @@ interface SemesterCardProps {
   onCourseDragStart: (courseId: string) => void;
   onCourseDelete: (courseId: string) => void;
   onDropCourse: () => void;
-  onDragOverCourse: () => void;
+  onDragOverCourse: (event: React.DragEvent) => void;
 }
 
 const SemesterCard: React.FC<SemesterCardProps> = ({
