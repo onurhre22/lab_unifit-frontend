@@ -15,7 +15,10 @@ import AddCourse from "./pages/AddCourse";
 import SignupRole from "./pages/SignupRole";
 import ProfessorDashboard from "./pages/ProfessorDashboard";
 
-// ✅ 전문가 신원 인증(교수/강사/멘토)
+// AI 팀 매칭 조건 설정 페이지 추가
+import AiTeamMatching from "./pages/AiTeamMatching";
+
+// 전문가 신원 인증(교수/강사/멘토)
 import ExpertVerify from "./pages/ExpertVerify";
 
 import Footer from "./components/Footer";
@@ -49,11 +52,11 @@ export default function App() {
         {/* Team Project */}
         <Route path="/team-project" element={<TeamProject />} />
         <Route path="/join-project" element={<JoinProject />} />
-        <Route
-          path="/autonomous-recruitment"
-          element={<AutonomousRecruitment />}
-        />
+        <Route path="/autonomous-recruitment" element={<AutonomousRecruitment />} />
         <Route path="/team-workspace/:id" element={<TeamWorkspace />} />
+
+        {/* ✅ AI Smart Matching */}
+        <Route path="/ai-team-matching" element={<AiTeamMatching />} />
 
         {/* Etc */}
         <Route path="/notifications" element={<Notification />} />
