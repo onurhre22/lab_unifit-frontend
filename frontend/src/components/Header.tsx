@@ -87,8 +87,8 @@ const DefaultRightContent = () => (
       </IconBtn>
     </Link>
 
-    <button
-      type="button"
+    <Link
+      to="/mypage"
       aria-label="마이페이지"
       className="ml-1 flex h-9 items-center gap-2 rounded-xl pl-2 pr-2.5 text-slate-700 hover:bg-slate-100 transition"
     >
@@ -108,7 +108,7 @@ const DefaultRightContent = () => (
         </svg>
       </span>
       <span className="hidden text-sm font-medium md:block">마이페이지</span>
-    </button>
+    </Link>
   </div>
 );
 
