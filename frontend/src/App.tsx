@@ -22,6 +22,9 @@ import AiTeamMatching from "./pages/AiTeamMatching";
 // 전문가 신원 인증(교수/강사/멘토)
 import ExpertVerify from "./pages/ExpertVerify";
 
+// 멘토링 페이지 추가
+import Mentoring from "./pages/Mentoring";
+
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -47,6 +50,7 @@ export default function App() {
         <Route path="/curriculum-roadmap" element={<CurriculumRoadmap />} />
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mentoring" element={<Mentoring />} />
 
         {/* Professor */}
         <Route path="/professor" element={<ProfessorDashboard />} />

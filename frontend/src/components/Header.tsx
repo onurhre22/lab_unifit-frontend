@@ -137,7 +137,7 @@ export default function Header({
 
               <AppNavLink to="/team-project">팀 프로젝트</AppNavLink>
 
-              <DisabledNavItem>멘토링</DisabledNavItem>
+              <AppNavLink to="/mentoring">멘토링</AppNavLink>
               <DisabledNavItem>포트폴리오</DisabledNavItem>
             </nav>
           ) : null}

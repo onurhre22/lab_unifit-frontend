@@ -544,17 +544,15 @@ export default function Main() {
 
 
 
-                <Link to="/team-project">
-                  <ServiceCard title="팀 프로젝트" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
-                </Link>
-
-
-
-                <ServiceCard title="선배 멘토링" desc="관심 분야에 맞는 선배를 찾아 1:1 상담을 연결합니다." />
-
-
-
-                <ServiceCard title="AI 포트폴리오" desc="업로드만 하면 자동 정리·피드백까지 제공해요." />
+                                <Link to="/team-project">
+                                  <ServiceCard title="팀 프로젝트" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
+                                </Link>
+                
+                                <Link to="/mentoring">
+                                  <ServiceCard title="선배 멘토링" desc="관심 분야에 맞는 선배를 찾아 1:1 상담을 연결합니다." />
+                                </Link>
+                
+                                <ServiceCard title="AI 포트폴리오" desc="업로드만 하면 자동 정리·피드백까지 제공해요." />
 
 
 
