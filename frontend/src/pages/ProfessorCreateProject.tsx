@@ -249,7 +249,7 @@ type RubricRow = { id: string; name: string; percent: number };
 
 export default function ProfessorCreateProject() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  const [step] = useState<1 | 2 | 3 | 4>(1);
 
   // 기본 강의 정보
   const [courseName, setCourseName] = useState("");
