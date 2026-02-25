@@ -234,7 +234,6 @@ function Stepper({ step }: { step: 1 | 2 | 3 | 4 }) {
                 </div>
               </div>
 
-              {/* spacing for last */}
               {idx === steps.length - 1 ? null : <div className="hidden md:block w-2" />}
             </div>
           );
@@ -249,7 +248,9 @@ type RubricRow = { id: string; name: string; percent: number };
 
 export default function ProfessorCreateProject() {
   const navigate = useNavigate();
-  const [step] = useState<1 | 2 | 3 | 4>(1);
+
+  // ✅ step은 현재 화면에서 고정(1단계 시안)이라 state 필요 없음 → TS6133 방지
+  const step: 1 | 2 | 3 | 4 = 1;
 
   // 기본 강의 정보
   const [courseName, setCourseName] = useState("");
@@ -297,9 +298,6 @@ export default function ProfessorCreateProject() {
   const updateRubric = (id: string, patch: Partial<RubricRow>) => {
     setRubric((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   };
-
-  // const goNext = () => setStep((s) => (s < 4 ? ((s + 1) as any) : s));
-  // const goPrev = () => setStep((s) => (s > 1 ? ((s - 1) as any) : s));
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -546,7 +544,11 @@ export default function ProfessorCreateProject() {
 
             <div className="mt-6 flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-700">총 배점</div>
-              <div className={`text-sm font-extrabold ${totalPercent === 100 ? "text-emerald-600" : "text-rose-600"}`}>
+              <div
+                className={`text-sm font-extrabold ${
+                  totalPercent === 100 ? "text-emerald-600" : "text-rose-600"
+                }`}
+              >
                 {totalPercent}%
               </div>
             </div>
@@ -605,7 +607,6 @@ export default function ProfessorCreateProject() {
               type="button"
               className="rounded-xl bg-indigo-700 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-800 transition"
               onClick={() => {
-                // 실제 저장 API 붙이기 전이라면 여기서 콘솔로만 확인
                 console.log({
                   courseName,
                   courseCode,
