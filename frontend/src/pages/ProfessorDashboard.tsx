@@ -144,7 +144,10 @@ function ProgressBar({ percent }: { percent: number }) {
   const p = Math.max(0, Math.min(100, percent));
   return (
     <div className="h-2 w-44 rounded-full bg-slate-100">
-      <div className="h-2 rounded-full bg-emerald-500" style={{ width: `${p}%` }} />
+      <div
+        className="h-2 rounded-full bg-emerald-500"
+        style={{ width: `${p}%` }}
+      />
     </div>
   );
 }
@@ -162,8 +165,8 @@ function StatusDot({ status }: { status: TeamRow["status"] }) {
     status === "완료"
       ? "bg-emerald-500"
       : status === "주의"
-        ? "bg-rose-500"
-        : "bg-sky-500";
+      ? "bg-rose-500"
+      : "bg-sky-500";
   return <span className={`inline-block h-2 w-2 rounded-full ${cls}`} />;
 }
 
@@ -198,11 +201,16 @@ function CourseSection({
 
         <div className="divide-y divide-slate-100">
           {rows.map((r) => (
-            <div key={r.teamName} className="grid grid-cols-12 items-center py-3 text-sm">
+            <div
+              key={r.teamName}
+              className="grid grid-cols-12 items-center py-3 text-sm"
+            >
               <div className="col-span-1">
                 <StatusDot status={r.status} />
               </div>
-              <div className="col-span-4 font-medium text-slate-900">{r.teamName}</div>
+              <div className="col-span-4 font-medium text-slate-900">
+                {r.teamName}
+              </div>
               <div className="col-span-3 text-slate-700">{r.leader}</div>
               <div className="col-span-2 text-slate-700">{r.members}</div>
               <div className="col-span-2 flex justify-end">
@@ -227,7 +235,7 @@ function CourseSection({
 
 /** ---------- Page ---------- */
 export default function ProfessorDashboard() {
-  // 더미 데이터(피그마 느낌)
+  // 더미 데이터
   const courseA: TeamRow[] = [
     { status: "활동중", teamName: "알파팀", leader: "김민수", members: 5, progress: 75 },
     { status: "활동중", teamName: "베타팀", leader: "박지영", members: 4, progress: 45 },
@@ -274,12 +282,14 @@ export default function ProfessorDashboard() {
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <Link
-              to="/team-project"
+            {/* ✅ 수정: 새 프로젝트 생성 -> create-project 페이지로 이동 */}
+           <Link
+              to="/professor/create-project"
               className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition"
             >
               새 프로젝트 생성
             </Link>
+
             <button className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">
               공지 작성
             </button>
@@ -336,12 +346,14 @@ export default function ProfessorDashboard() {
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="text-sm font-semibold text-slate-900">빠른 작업</div>
           <div className="mt-4 flex flex-wrap gap-2">
+            {/* ✅ 수정: 빠른작업 새 프로젝트 생성도 create-project로 이동 */}
             <Link
-              to="/team-project"
+              to="/professor/create-project"
               className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition"
             >
               <span className="text-lg leading-none">＋</span> 새 프로젝트 생성
             </Link>
+
             <button className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">
               위험 팀 즉시 알림 발송
             </button>
