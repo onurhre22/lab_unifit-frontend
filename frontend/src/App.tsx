@@ -24,6 +24,8 @@ import ExpertVerify from "./pages/ExpertVerify";
 
 // 멘토링 페이지 추가
 import Mentoring from "./pages/Mentoring";
+import MentorDetail from "./pages/MentorDetail";
+import MentorReserve from "./pages/MentorReserve";
 
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -51,6 +53,8 @@ export default function App() {
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mentoring" element={<Mentoring />} />
+        <Route path="/mentor/:id" element={<MentorDetail />} />
+        <Route path="/mentor/:id/reserve" element={<MentorReserve />} />
 
         {/* Professor */}
         <Route path="/professor" element={<ProfessorDashboard />} />
