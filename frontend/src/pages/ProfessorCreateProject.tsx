@@ -298,8 +298,8 @@ export default function ProfessorCreateProject() {
     setRubric((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   };
 
-  const goNext = () => setStep((s) => (s < 4 ? ((s + 1) as any) : s));
-  const goPrev = () => setStep((s) => (s > 1 ? ((s - 1) as any) : s));
+  // const goNext = () => setStep((s) => (s < 4 ? ((s + 1) as any) : s));
+  // const goPrev = () => setStep((s) => (s > 1 ? ((s - 1) as any) : s));
 
   return (
     <div className="min-h-screen bg-slate-50">

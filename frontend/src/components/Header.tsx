@@ -8,7 +8,7 @@ function AppNavLink({ to, children }: { to: string; children: React.ReactNode })
   return (
     <RRNavLink
       to={to}
-      end={to === "/main"}
+      end={to === "/main"} // /main일 때만 홈 active 되게
       className={({ isActive }) =>
         [
           "relative px-1 py-1 text-sm font-medium transition",
@@ -28,14 +28,6 @@ function AppNavLink({ to, children }: { to: string; children: React.ReactNode })
         </>
       )}
     </RRNavLink>
-  );
-}
-
-function DisabledNavItem({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="px-1 py-1 text-sm font-medium text-slate-400 cursor-not-allowed">
-      {children}
-    </span>
   );
 }
 
@@ -62,6 +54,7 @@ function IconBtn({
   );
 }
 
+// Default content for the right side of the header
 const DefaultRightContent = () => (
   <div className="flex items-center gap-2">
     <Link to="/notifications">
@@ -74,6 +67,7 @@ const DefaultRightContent = () => (
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          aria-hidden="true"
         >
           <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
           <path d="M13.73 21a2 2 0 01-3.46 0" />
@@ -95,6 +89,7 @@ const DefaultRightContent = () => (
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          aria-hidden="true"
         >
           <path d="M20 21a8 8 0 10-16 0" />
           <circle cx="12" cy="7" r="4" />
@@ -126,8 +121,7 @@ export default function Header({
               <AppNavLink to="/curriculum-roadmap">AI 로드맵</AppNavLink>
               <AppNavLink to="/team-project">팀 프로젝트</AppNavLink>
               <AppNavLink to="/mentoring">멘토링</AppNavLink>
-
-              {/* 🔥 여기 수정됨 */}
+              {/* ✅ 포트폴리오 활성화 */}
               <AppNavLink to="/portfolio">포트폴리오</AppNavLink>
             </nav>
           ) : null}
