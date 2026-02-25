@@ -12,9 +12,7 @@ function AppNavLink({ to, children }: { to: string; children: React.ReactNode })
       className={({ isActive }) =>
         [
           "relative px-1 py-1 text-sm font-medium transition",
-          // 기본 색상: 슬레이트
           !isActive && "text-slate-600 hover:text-indigo-600",
-          // active 색상: UniFit 컬러(인디고)
           isActive && "text-indigo-600",
         ]
           .filter(Boolean)
@@ -24,22 +22,12 @@ function AppNavLink({ to, children }: { to: string; children: React.ReactNode })
       {({ isActive }) => (
         <>
           {children}
-          {/* active일 때만 밑줄(불 들어온 느낌) */}
           {isActive ? (
             <span className="absolute -bottom-2 left-0 right-0 mx-auto h-[2px] w-full rounded-full bg-indigo-600" />
           ) : null}
         </>
       )}
     </RRNavLink>
-  );
-}
-
-// 준비중 메뉴는 NavLink 쓰지 말고 버튼/스팬 처리 (active 절대 안 됨)
-function DisabledNavItem({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="px-1 py-1 text-sm font-medium text-slate-400 cursor-not-allowed">
-      {children}
-    </span>
   );
 }
 
@@ -129,16 +117,12 @@ export default function Header({
 
           {showNav ? (
             <nav className="hidden items-center gap-8 md:flex">
-              {/* 홈만 active 되도록: 실제 라우트는 AppNavLink */}
               <AppNavLink to="/main">홈</AppNavLink>
-
-              {/* 아직 페이지 없으면 DisabledNavItem로 (active 절대 X) */}
               <AppNavLink to="/curriculum-roadmap">AI 로드맵</AppNavLink>
-
               <AppNavLink to="/team-project">팀 프로젝트</AppNavLink>
-
               <AppNavLink to="/mentoring">멘토링</AppNavLink>
-              <DisabledNavItem>포트폴리오</DisabledNavItem>
+              {/* ✅ 포트폴리오 활성화 */}
+              <AppNavLink to="/portfolio">포트폴리오</AppNavLink>
             </nav>
           ) : null}
         </div>
