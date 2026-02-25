@@ -9,14 +9,25 @@ import AutonomousRecruitment from "./pages/AutonomousRecruitment";
 import Notification from "./pages/Notification";
 import RecruitmentDetail from "./pages/RecruitmentDetail";
 import TeamWorkspace from "./pages/TeamWorkspace";
+import Portfolio from "./pages/Portfolio";
 import CurriculumRoadmap from "./pages/CurriculumRoadmap";
 import AddCourse from "./pages/AddCourse";
+import MyPage from "./pages/MyPage";
 
 import SignupRole from "./pages/SignupRole";
-import ProfessorDashboard from "./pages/ProfessorDashboard";
-import ProfessorCreateProject from "./pages/ProfessorCreateProject"; // ✅ 추가
 
+// 교수님 화면 대시보드
+import ProfessorDashboard from "./pages/ProfessorDashboard";
+import ProfessorCreateProject from "./pages/ProfessorCreateProject.tsx";
+
+// AI 팀 매칭 조건 설정 페이지 추가
+import AiTeamMatching from "./pages/AiTeamMatching";
+
+// 전문가 신원 인증(교수/강사/멘토)
 import ExpertVerify from "./pages/ExpertVerify";
+
+// 멘토링 페이지 추가
+import Mentoring from "./pages/Mentoring";
 
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -27,31 +38,44 @@ export default function App() {
       <ScrollToTop />
 
       <Routes>
+        {/* 첫 방문은 로그인으로 */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
+        {/* Auth */}
         <Route path="/login" element={<Login />} />
 
+        {/* Signup */}
         <Route path="/signup-role" element={<SignupRole />} />
         <Route path="/expert-verify" element={<ExpertVerify />} />
 
+        {/* Student */}
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/main" element={<Main />} />
         <Route path="/curriculum-roadmap" element={<CurriculumRoadmap />} />
         <Route path="/add-course" element={<AddCourse />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mentoring" element={<Mentoring />} />
+        <Route path="/portfolio" element={<Portfolio />} />
 
         {/* Professor */}
         <Route path="/professor" element={<ProfessorDashboard />} />
-        <Route path="/professor/create-project" element={<ProfessorCreateProject />} /> {/* ✅ 추가 */}
+        <Route path="/professor/create-project" element={<ProfessorCreateProject />} />
+        
 
-        {/* Team Project (Student) */}
+        {/* Team Project */}
         <Route path="/team-project" element={<TeamProject />} />
         <Route path="/join-project" element={<JoinProject />} />
         <Route path="/autonomous-recruitment" element={<AutonomousRecruitment />} />
         <Route path="/team-workspace/:id" element={<TeamWorkspace />} />
 
+        {/* ✅ AI Smart Matching */}
+        <Route path="/ai-team-matching" element={<AiTeamMatching />} />
+
+        {/* Etc */}
         <Route path="/notifications" element={<Notification />} />
         <Route path="/recruitment/:id" element={<RecruitmentDetail />} />
 
+        {/* 그 외는 로그인으로 */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
 
