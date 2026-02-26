@@ -12,6 +12,10 @@ import TeamWorkspace from "./pages/TeamWorkspace";
 import CurriculumRoadmap from "./pages/CurriculumRoadmap";
 import AddCourse from "./pages/AddCourse";
 import MyPage from "./pages/MyPage";
+import Portfolio from "./pages/Portfolio";
+import CourseDetail from "./pages/CourseDetail";
+import RoadmapSimulator from "./pages/RoadmapSimulator";
+import AiTeamMatching from "./pages/AiTeamMatching";
 
 import SignupRole from "./pages/SignupRole";
 import ProfessorDashboard from "./pages/ProfessorDashboard";
@@ -49,6 +53,9 @@ export default function App() {
         <Route path="/curriculum-roadmap" element={<CurriculumRoadmap />} />
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/course/:id" element={<CourseDetail />} />
+        <Route path="/roadmap-simulator" element={<RoadmapSimulator />} />
         <Route path="/mentoring" element={<Mentoring />} />
         <Route path="/mentor/:id" element={<MentorDetail />} />
         <Route path="/mentor/:id/reserve" element={<MentorReserve />} />
@@ -60,6 +67,7 @@ export default function App() {
         {/* Team Project */}
         <Route path="/team-project" element={<TeamProject />} />
         <Route path="/join-project" element={<JoinProject />} />
+        <Route path="/ai-team-matching" element={<AiTeamMatching />} />
         <Route path="/autonomous-recruitment" element={<AutonomousRecruitment />} />
         <Route path="/team-workspace/:id" element={<TeamWorkspace />} />
 

@@ -201,45 +201,61 @@ function ScheduleCard() {
 
 
 function MentorCard() {
-
-
-
-
-
-
+  const mentors = [
+    { id: 1, name: "김민수", role: "시니어 프론트엔드 개발자", company: "테크코리아", tags: ["React", "커리어"] },
+    { id: 2, name: "이영희", role: "데이터 사이언티스트", company: "글로벌AI", tags: ["ML", "대학원"] },
+  ];
 
   return (
-
-
-
     <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm min-h-[460px]">
+      <div className="flex items-center justify-between">
+        <div className="text-sm font-medium text-slate-900">추천 멘토</div>
+        <Link to="/mentoring" className="text-xs text-indigo-600 hover:underline">
+          더보기
+        </Link>
+      </div>
 
-
-
-          <div className="text-sm font-medium text-slate-900">추천 멘토</div>
-
-
-
-            <div className="flex flex-grow flex-col items-center justify-center pt-6 text-center">
-
-
-
-              <p className="text-sm text-slate-500">컨텐츠 준비 중</p>
-
-
-
+      <div className="mt-6 space-y-4">
+        {mentors.map((m) => (
+          <div
+            key={m.id}
+            className="group rounded-xl border border-slate-100 bg-slate-50 p-4 transition hover:border-indigo-200 hover:bg-white"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 font-bold text-indigo-600">
+                {m.name[0]}
+              </div>
+              <div className="min-w-0">
+                <div className="text-sm font-bold text-slate-900">{m.name}</div>
+                <div className="truncate text-xs text-slate-500">
+                  {m.role} @ {m.company}
+                </div>
+              </div>
             </div>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {m.tags.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[10px] text-slate-600"
+                >
+                  #{t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
-
-
+      <div className="mt-auto pt-6">
+        <Link
+          to="/mentoring"
+          className="block w-full rounded-xl bg-indigo-50 py-3 text-center text-xs font-bold text-indigo-700 transition hover:bg-indigo-100"
+        >
+          나에게 맞는 멘토 더 찾기
+        </Link>
+      </div>
     </div>
-
-
-
   );
-
-
-
 }
 
 
@@ -376,79 +392,24 @@ export default function Main() {
 
 
 
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
-
-
-
-              AI로 미래를 설계하세요
-
-
-
-            </h1>
-
-
-
-
-
-
-
-            <p className="mt-4 text-white/85 md:text-lg">
-
-
-
-              진로·역량·시간표를 기반으로, 당신에게 맞는 학업 성장 로드맵을 만들어 드려요.
-
-
-
-            </p>
-
-
-
-
-
-
-
+                        <h1 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
+                          AI로 미래를 설계하세요
+                        </h1>
+            
+                        <p className="mt-4 text-white/85 md:text-lg">
+                          진로·역량·시간표를 기반으로, 당신에게 맞는 학업 성장 로드맵을 만들어 드려요.
+                        </p>
+            
                         <div className="mx-auto mt-10 flex justify-center">
-
-
-
-
-
-
-
-                          <button className="rounded-2xl bg-black px-7 py-4 text-sm font-semibold text-white shadow-sm hover:bg-slate-900 md:text-base">
-
-
-
-
-
-
-
+                          <Link
+                            to="/curriculum-roadmap"
+                            className="rounded-2xl bg-black px-7 py-4 text-sm font-semibold text-white shadow-sm hover:bg-slate-900 md:text-base"
+                          >
                             AI 로드맵 시작
-
-
-
-
-
-
-
-                          </button>
-
-
-
-
-
-
-
+                          </Link>
                         </div>
-
-
-
-
-
-
-
-            <div className="mt-10 flex flex-col items-center gap-3">
+            
+                        <div className="mt-10 flex flex-col items-center gap-3">
 
 
 
@@ -532,35 +493,25 @@ export default function Main() {
 
 
 
-            <div className="mt-4">
-
-
-
-              <div className="flex gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
-
-
-
-                <ServiceCard title="AI 강좌 로드맵" desc="진로/역량 기반으로 학기별 추천 로드맵을 제안합니다." badge="추천" />
-
-
-
-                                <Link to="/team-project">
-                                  <ServiceCard title="팀 프로젝트" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
-                                </Link>
-                
-                                <Link to="/mentoring">
-                                  <ServiceCard title="선배 멘토링" desc="관심 분야에 맞는 선배를 찾아 1:1 상담을 연결합니다." />
-                                </Link>
-                
-                                <ServiceCard title="AI 포트폴리오" desc="업로드만 하면 자동 정리·피드백까지 제공해요." />
-
-
-
-              </div>
-
-
-
-            </div>
+                        <div className="mt-4">
+                          <div className="flex gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
+                            <Link to="/curriculum-roadmap">
+                              <ServiceCard title="AI 강좌 로드맵" desc="진로/역량 기반으로 학기별 추천 로드맵을 제안합니다." badge="추천" />
+                            </Link>
+            
+                            <Link to="/team-project">
+                              <ServiceCard title="팀 프로젝트" desc="역량/성향/시간표 기반으로 최적 팀 구성을 추천합니다." />
+                            </Link>
+            
+                            <Link to="/mentoring">
+                              <ServiceCard title="선배 멘토링" desc="관심 분야에 맞는 선배를 찾아 1:1 상담을 연결합니다." />
+                            </Link>
+            
+                            <Link to="/portfolio">
+                              <ServiceCard title="AI 포트폴리오" desc="업로드만 하면 자동 정리·피드백까지 제공해요." />
+                            </Link>
+                          </div>
+                        </div>
 
 
 

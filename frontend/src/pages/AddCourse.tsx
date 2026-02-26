@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const allCourses = [
   {
     id: 'c101',
-    code: 'CS101',
-    type: '전공선택',
+    courseCode: 'CS101',
+    completionType: '전공선택',
     aiRecommended: true,
     name: 'Introduction to AI',
     professor: '김교수',
@@ -15,11 +15,12 @@ const allCourses = [
     credits: 3,
     rating: 4.5,
     reviews: 23,
+    recommendationReason: "수강하신 '프로그래밍기초'와 연계된 AI 입문 과정입니다.",
   },
   {
     id: 'c102',
-    code: 'CS102',
-    type: '전공필수',
+    courseCode: 'CS102',
+    completionType: '전공필수',
     aiRecommended: false,
     name: 'Machine Learning',
     professor: '이교수',
@@ -31,8 +32,8 @@ const allCourses = [
   },
   {
     id: 'c103',
-    code: 'CS103',
-    type: '전공선택',
+    courseCode: 'CS103',
+    completionType: '전공선택',
     aiRecommended: true,
     name: 'Deep Learning',
     professor: '박교수',
@@ -41,11 +42,12 @@ const allCourses = [
     credits: 3,
     rating: 4.7,
     reviews: 28,
+    recommendationReason: "관심 분야인 '데이터 과학' 커리어 패스에 필수적인 과목입니다.",
   },
     {
     id: 'c104',
-    code: 'CS104',
-    type: '교양필수',
+    courseCode: 'CS104',
+    completionType: '교양필수',
     aiRecommended: false,
     name: 'Natural Language Processing',
     professor: '최교수',
@@ -77,9 +79,14 @@ const AddCourse: React.FC = () => {
     navigate('/curriculum-roadmap');
   };
 
-  const filteredCourses = allCourses.filter((course) =>
-    course.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredCourses = allCourses
+    .filter((course) =>
+      course.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (a.aiRecommended === b.aiRecommended) return 0;
+      return a.aiRecommended ? -1 : 1;
+    });
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -125,9 +132,9 @@ const AddCourse: React.FC = () => {
               >
                 <div className="flex-grow">
                   <div className="flex items-center space-x-2 text-xs text-gray-500">
-                    <span>{course.code}</span>
+                    <span>{course.courseCode}</span>
                     <span>|</span>
-                    <span>{course.type}</span>
+                    <span>{course.completionType}</span>
                     {course.aiRecommended && (
                       <>
                         <span>|</span>
@@ -135,7 +142,14 @@ const AddCourse: React.FC = () => {
                       </>
                     )}
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mt-1">{course.name}</h3>
+                  <Link to={`/course/${course.id}`} className="hover:text-indigo-600 transition">
+                    <h3 className="text-lg font-bold text-slate-900 mt-1">{course.name}</h3>
+                  </Link>
+                  {course.aiRecommended && course.recommendationReason && (
+                    <p className="mt-1 text-xs font-medium text-indigo-500 bg-indigo-50 px-2 py-1 rounded-md inline-block">
+                      ✨ {course.recommendationReason}
+                    </p>
+                  )}
                   <div className="text-sm text-gray-600 mt-1">
                     <span>{course.professor}</span>
                     <span className="mx-2">|</span>

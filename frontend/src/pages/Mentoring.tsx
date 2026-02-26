@@ -72,11 +72,11 @@ const Mentoring: React.FC = () => {
       
       <main className="mx-auto max-w-7xl px-6 py-12">
         {/* 상단 검색 영역 */}
-        <section className="mb-12 text-center">
+        <section className="mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">멘토 찾기</h2>
           <p className="text-slate-600 mb-8">당신의 커리어 성장을 도와줄 선배 멘토를 만나보세요.</p>
           
-          <div className="mx-auto max-w-2xl relative">
+          <div className="max-w-2xl relative">
             <input
               type="text"
               placeholder="이름, 직무, 전공, 태그로 검색해보세요 (예: React, 디자인)"
