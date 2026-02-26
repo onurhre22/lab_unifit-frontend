@@ -12,7 +12,7 @@ const RoadmapSimulator: React.FC = () => {
   const navigate = useNavigate();
   
   // 시뮬레이션을 위한 가상 상태
-  const [simulatedCourses, setSimulatedCourses] = useState([
+  const [simulatedCourses] = useState([
     { id: 'sim1', name: 'AI 윤리와 법', credits: 3, type: '교양선택' }
   ]);
   

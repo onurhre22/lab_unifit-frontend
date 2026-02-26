@@ -8,7 +8,7 @@ interface TimeSlot {
 }
 
 const MentorReserve: React.FC = () => {
-  const { id } = useParams();
+  useParams();
   const navigate = useNavigate();
   
   const [selectedDate, setSelectedDate] = useState('2026-03-02');

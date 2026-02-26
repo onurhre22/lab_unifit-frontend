@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import GraduationChecklistCard from '../components/GraduationChecklistCard';
 import SemesterCard from '../components/SemesterCard';
@@ -30,7 +30,6 @@ type DragPayload = {
 };
 
 const CurriculumRoadmap: React.FC = () => {
-  const navigate = useNavigate();
   const [dragPayload, setDragPayload] = useState<DragPayload | null>(null);
   
   // 조회/편집 모드 및 시뮬레이션 관련 상태
